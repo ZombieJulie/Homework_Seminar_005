@@ -1,7 +1,7 @@
 ﻿/*Задача 36: Задайте одномерный массив, заполненный случайными числами.
 Найдите сумму элементов, стоящих на нечётных позициях.*/
 
-int[] array = GetArray(5, -1000, 1000);
+int[] array = GetArray(10, -1000, 1000);
 int sum = 0;
 
 int[] GetArray(int size, int min, int max)
@@ -18,8 +18,17 @@ Console.Write("[ ");
 foreach (int i in array)
 {
     Console.Write(i + " ");
-    sum += i % 2 == 1 ? i : 0;
 }
 Console.Write("]");
+
+int GetSum(int[] array)
+{
+    for (int i = 1; i < array.Length; i += 2)
+    {
+        sum += array[i];
+    }
+return sum;
+}
+
 Console.WriteLine();
-Console.WriteLine($"Сумма нечетных чисел в массиве = {sum}");
+Console.WriteLine($"Сумма стоящих на нечётных позициях чисел в массиве = {GetSum(array)}");
